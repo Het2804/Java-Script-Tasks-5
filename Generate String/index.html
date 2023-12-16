@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random String Generator</title>
+<link rel="stylesheet" href="stye.css">
+</head>
+<body>
+
+  <h2><label for="length">Enter value:</label></h2>
+  <input type="number" id="length" placeholder="Enter length">
+
+  <button onclick="displayRandomString()">Generate Random String</button>
+
+  <p id="output">Random String:</p>
+  <script>
+    function generateRandomString(length) {
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        result += charset.charAt(randomIndex);
+      }
+      return result;
+    }
+
+    function displayRandomString() {
+      const length = document.getElementById('length').value;
+      const randomString = generateRandomString(length);
+      document.getElementById('output').innerHTML =  'Random String: '+randomString;
+    }
+  </script>
+</body>
+</html>
